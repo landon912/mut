@@ -6,4 +6,4 @@ future.
 
 The collection is ever expanding with topics of interest.
 
-This work is licensed under MIT, see [LICENSE](LICENSE) for more information.
+This work is licensed under MIT, see [LICENSE](LICENSE.md) for more information.
