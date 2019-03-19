@@ -63,6 +63,16 @@ unsigned int mut::abs(unsigned int num)
     return num >= 0 ? num : -num;
 }
 
+float mut::abs(float num)
+{
+    return num >= 0 ? num : -num;
+}
+
+float mut::lerp(float a, float b, float t)
+{
+    return a * (1-t) + (b * t);
+}
+
 bool mut::isPrime(int num)
 {
     unsigned int nn = abs(num);
@@ -115,13 +125,12 @@ vector<int> mut::primesUpTo(int inclusiveMax)
 int main()
 {
     mut m;
-    //list<int> nums = { 25, 200, 500, 900, 250 };
-    //cout << m.gcd(nums) << endl;
 
-    vector<int> res = m.primesUpTo(15);
-
-    for(int i = 0; i > -50; i--)
+    float t = 0.0f;
+    while(t <= 1.05f)
     {
-        cout << i << " is prime? " << m.isPrime(i) << endl;
+        cout << t << endl;
+        cout << m.lerp(0,100,t) << endl;
+        t+=0.1f;
     }
 }

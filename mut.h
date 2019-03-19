@@ -23,6 +23,10 @@ public:
     //abs
     int abs(int num);
     unsigned int abs(unsigned int num);
+    float abs(float num);
+
+    //interpolations
+    float lerp(float a, float b, float t);
 
     //primes
     bool isPrime(int num);
