@@ -21,17 +21,24 @@ public:
     string gcd_lc(int x, int y); //finds linear combination of gcd
 
     //abs
-    int abs(int num);
-    unsigned int abs(unsigned int num);
-    float abs(float num);
+    int abs(int n);
+    unsigned int abs(unsigned int n);
+    float abs(float n);
 
     //interpolations
     float lerp(float a, float b, float t);
 
     //primes
-    bool isPrime(int num);
-    bool isPrime(unsigned int num);
+    bool isPrime(int n);
+    bool isPrime(unsigned int n);
     vector<int> primesUpTo(int inclusiveMax);
+
+    //number theoretic
+    bool divides(int d, int n);
+    bool propDivides(int d, int n);
+    int sigmaFunc(int n);
+    int sigmaFunc(int n, int p);
+    int aliquotSum(int n);
 };
 
 #endif

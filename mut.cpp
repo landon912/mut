@@ -53,19 +53,19 @@ string mut::gcd_lc(int x, int y)
     return "";
 }
 
-int mut::abs(int num)
+int mut::abs(int n)
 {
-    return num >= 0 ? num : -num;
+    return n >= 0 ? n : -n;
 }
 
-unsigned int mut::abs(unsigned int num)
+unsigned int mut::abs(unsigned int n)
 {
-    return num >= 0 ? num : -num;
+    return n >= 0 ? n : -n;
 }
 
-float mut::abs(float num)
+float mut::abs(float n)
 {
-    return num >= 0 ? num : -num;
+    return n >= 0 ? n : -n;
 }
 
 float mut::lerp(float a, float b, float t)
@@ -73,17 +73,17 @@ float mut::lerp(float a, float b, float t)
     return a * (1-t) + (b * t);
 }
 
-bool mut::isPrime(int num)
+bool mut::isPrime(int n)
 {
-    unsigned int nn = abs(num);
+    unsigned int nn = abs(n);
     return isPrime(nn);
 }
 
-bool mut::isPrime(unsigned int num)
+bool mut::isPrime(unsigned int n)
 {
-    if(num == 1)
+    if(n == 1)
         return false;
-    return num == 2 || num % 2 != 0;
+    return n == 2 || n % 2 != 0;
 }
 
 vector<int> mut::primesUpTo(int inclusiveMax)
@@ -122,15 +122,48 @@ vector<int> mut::primesUpTo(int inclusiveMax)
     return output;
 }
 
+bool mut::divides(int d, int n)
+{
+    if(d == 0)
+        return false;
+    return n%d == 0;
+}
+
+bool mut::propDivides(int d, int n)
+{
+    if(d == 0)
+        return false;
+    return n%d == 0 && n != d;
+}
+
+int mut::sigmaFunc(int n)
+{
+    return sigmaFunc(n, 1);
+}
+
+int mut::sigmaFunc(int n, int p)
+{
+    int sum = 0;
+    for(int i = 0; i <= n; i++)
+    {
+        if(divides(i,n))
+        {
+            sum += pow(i, p);
+        }
+    }
+    return sum;
+}
+
+int mut::aliquotSum(int n)
+{
+    return sigmaFunc(n)-n;
+}
+
 int main()
 {
     mut m;
 
-    float t = 0.0f;
-    while(t <= 1.05f)
-    {
-        cout << t << endl;
-        cout << m.lerp(0,100,t) << endl;
-        t+=0.1f;
-    }
+    cout << m.sigmaFunc(12) << endl;
+    cout << m.aliquotSum(12) << endl;
+    cout << m.sigmaFunc(12, 3) << endl;
 }
