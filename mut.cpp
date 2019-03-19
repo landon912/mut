@@ -53,6 +53,29 @@ string mut::gcd_lc(int x, int y)
     return "";
 }
 
+int mut::abs(int num)
+{
+    return num >= 0 ? num : -num;
+}
+
+unsigned int mut::abs(unsigned int num)
+{
+    return num >= 0 ? num : -num;
+}
+
+bool mut::isPrime(int num)
+{
+    unsigned int nn = abs(num);
+    return isPrime(nn);
+}
+
+bool mut::isPrime(unsigned int num)
+{
+    if(num == 1)
+        return false;
+    return num == 2 || num % 2 != 0;
+}
+
 vector<int> mut::primesUpTo(int inclusiveMax)
 {
     if(inclusiveMax <= 1)
@@ -95,10 +118,10 @@ int main()
     //list<int> nums = { 25, 200, 500, 900, 250 };
     //cout << m.gcd(nums) << endl;
 
-    vector<int> res = m.primesUpTo(1800);
+    vector<int> res = m.primesUpTo(15);
 
-    for(int i = 0; i < res.size(); i++)
+    for(int i = 0; i > -50; i--)
     {
-        cout << res[i] << endl;
+        cout << i << " is prime? " << m.isPrime(i) << endl;
     }
 }

@@ -20,7 +20,13 @@ public:
     int gcd(list<int> vals);
     string gcd_lc(int x, int y); //finds linear combination of gcd
 
+    //abs
+    int abs(int num);
+    unsigned int abs(unsigned int num);
+
     //primes
+    bool isPrime(int num);
+    bool isPrime(unsigned int num);
     vector<int> primesUpTo(int inclusiveMax);
 };
 
