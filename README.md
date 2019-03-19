@@ -5,3 +5,5 @@ of basic functions that may be in the standard library, it also seeks to provide
 future.
 
 The collection is ever expanding with topics of interest.
+
+This work is licensed under MIT, see [LICENSE](LICENSE.md) for more information.
