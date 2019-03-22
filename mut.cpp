@@ -159,11 +159,27 @@ int mut::aliquotSum(int n)
     return sigmaFunc(n)-n;
 }
 
+double mut::stirlingApprox(double n)
+{
+    //this is a modified version of sterling's approximation of factorials
+    //from: Weisstein, Eric W. "Stirling's Approximation." From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/StirlingsApproximation.html 
+    return sqrt((2*n+(1.0f/3.0f))*M_PI) * pow(n,n) * pow(M_E, -n);
+}
+
 int main()
 {
     mut m;
+    clock_t startTime = clock();
+    double secondsPassed = 0;
 
-    cout << m.sigmaFunc(12) << endl;
-    cout << m.aliquotSum(12) << endl;
-    cout << m.sigmaFunc(12, 3) << endl;
+    for(int i = 0; i < 100000000; i++)
+    {
+        float n = i%142;
+
+        m.stirlingApprox(n);
+    }
+
+    secondsPassed = (clock() - startTime) / CLOCKS_PER_SEC;
+
+    cout << secondsPassed << endl;
 }

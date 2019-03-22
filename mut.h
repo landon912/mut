@@ -39,6 +39,7 @@ public:
     int sigmaFunc(int n);
     int sigmaFunc(int n, int p);
     int aliquotSum(int n);
+    double stirlingApprox(double n);
 };
 
 #endif
