@@ -6,7 +6,8 @@
 #include "mut.h"
 
 using namespace std;
-
+namespace mut
+{
 int mut::min(int x, int y)
 {
     return x > y ? y : x;
@@ -15,6 +16,11 @@ int mut::min(int x, int y)
 int mut::max(int x, int y)
 {
     return x > y ? x : y;
+}
+
+float mut::toRad(float degrees)
+{
+    return degrees * (3.14159265358979323846 / 180.0f);
 }
 
 int mut::gcd(int x, int y)
@@ -159,27 +165,45 @@ int mut::aliquotSum(int n)
     return sigmaFunc(n)-n;
 }
 
-double mut::stirlingApprox(double n)
+#include <climits>
+
+unsigned long long int mut::factorial(int n)
+{
+    unsigned long long int r = 1ULL;
+    for(int i = 2; i <= n; i++)
+    {
+        r = r * i;
+        cout << "Range left: " << ULLONG_MAX - r << endl;
+    }
+    return r;
+}
+
+unsigned long long int mut::stirlingApprox(unsigned long long int n)
 {
     //this is a modified version of sterling's approximation of factorials
     //from: Weisstein, Eric W. "Stirling's Approximation." From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/StirlingsApproximation.html 
-    return sqrt((2*n+(1.0f/3.0f))*M_PI) * pow(n,n) * pow(M_E, -n);
+    return sqrt((2*(long double)n+(1.0/3.0))*M_PI) * pow((long double)n,n) * pow((long double)M_E, -n);
+}
 }
 
 int main()
 {
-    mut m;
+    mut::mut m;
     clock_t startTime = clock();
     double secondsPassed = 0;
+
+    cout << m.factorial(21) << endl;
+    cout << m.stirlingApprox(21) << endl;
 
     for(int i = 0; i < 100000000; i++)
     {
         float n = i%142;
 
-        m.stirlingApprox(n);
+        //m.factorial(n);
+        //m.stirlingApprox(n);
     }
 
     secondsPassed = (clock() - startTime) / CLOCKS_PER_SEC;
 
-    cout << secondsPassed << endl;
+    //cout << secondsPassed << endl;
 }

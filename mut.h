@@ -5,16 +5,21 @@
 #include <list>
 #include <vector>
 
-using std::string;
 using std::list;
+using std::string;
 using std::vector;
 
+namespace mut
+{
 class mut
 {
 public:
     int min(int x, int y);
     int max(int x, int y);
-    
+
+    //angles
+    float toRad(float degrees);
+
     //gcd
     int gcd(int x, int y);
     int gcd(list<int> vals);
@@ -39,7 +44,11 @@ public:
     int sigmaFunc(int n);
     int sigmaFunc(int n, int p);
     int aliquotSum(int n);
-    double stirlingApprox(double n);
+
+    //factorials
+    unsigned long long int factorial(int n);
+    unsigned long long int stirlingApprox(unsigned long long int n);
 };
+}
 
 #endif
